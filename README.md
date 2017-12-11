@@ -79,7 +79,7 @@ internal | O membro pode ser acessado somente dentro do mesmo assembly (dll).
 
 > _internal_ é o modificador padrão para classes.
 
-**Classes Estáticas:** ao marcar uma classe como estática seus membros devem ser estáticos. Neste caso a classe estática não pode ser extendida (herança) e nem instanciada. A classe estática é instanciada para a memória quando a aplicação entra em execução e fica disponível para acesso através do "nome da classe".
+**Classes Estáticas:** ao marcar uma classe como estática seus membros devem ser estáticos. Neste caso a classe estática não pode ser estendida (herança) e nem instanciada. A classe estática é instanciada para a memória quando a aplicação entra em execução e fica disponível para acesso através do "nome da classe".
 
 ```csharp
 public static class Calculadora
@@ -146,3 +146,44 @@ GC.WaitForPendingFinalizers();
 Calculadora.contador; //0
 ```
 
+**Sobrecarga de Métodos:** vários métodos com mesmo nome e parâmetros diferentes.
+
+**Sobrecarga de Construtores:** vários construtores com parâmetros diferentes.
+
+**Herança:** é a capacidade de uma classe _filha_ herdar os atributos e métodos de uma classe _mãe_ e estender/especializar/ampliar/melhorar as características e o comportamento desta classe _mãe_.
+
+> No c# não existe _herança múltipla_, ou seja, uma classe filha só pode ter uma classe mãe.
+
+> Em determinadas ocasiões é desejável herdar atributos e métodos de uma classe mãe sem deixar esses atributos e métodos acessíveis na instância. Neste caso devemos utilizar o modificador de acesso _protected_.
+
+**Encapsulamento:**: recurso que permite proteger os membros de uma classe. 
+
+- Para esconder do mundo externo os membros de uma instância e impedir o acesso por herança devemos utilizar _private_. 
+- Para esconder do mundo externo e permitir acesso por herança devemos utilizar _protected_.
+- Para permitir somente a leitura de atributos devemos deixar os atributos como _private_ e devemos expor funções _public_ para retornar os atributos. Ainda é possível utilizar _auto properties_ sem o método _set_.
+
+```csharp
+public class Carro 
+{
+    private int _kmTotal = 0;
+
+    public int GetKmTotal()
+    {
+        return _kmTotal;
+    }
+    //ou
+    public int KmTotal 
+    {
+        get { return _kmTotal; }
+    }
+
+    public void Andar(int km, int velocidade)
+    {
+        for (var i=0; i<=km; i++)
+        {
+            Thread.Sleep(velocidade);
+        }
+        _kmTotal += km;
+    }
+}
+```
