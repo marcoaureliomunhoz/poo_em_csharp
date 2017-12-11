@@ -189,8 +189,10 @@ public class Carro
 ```
 
 **new vs override:** ambos nos permitem sobrescrever membros herdados em uma classe filha. Desta forma podemos modificar comportamentos e características indesejados provenientes da herança.
-- new: oculta o membro marcado com _new_, porém ainda é possível acessar através da keyword _base_.
+- new: oculta o membro marcado com _new_.
 - override: substitui o membro marcado com _override_. Para marcar na classe filha um membro com _override_ o mesmo deve ser marcado na classe mãe com _virtual_.
+
+> Tanto para new quanto para override podemos acessar os membros da classe mãe através da keyword _base_.
 
 ```csharp
 public class PapagaioCurintiano1
