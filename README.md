@@ -112,7 +112,7 @@ public Calculadora
         contador++;
     }
 
-    public ~Calculadora()
+    ~Calculadora()
     {
         contador--;
     }
@@ -138,9 +138,11 @@ c2.Multiplicar(2,6);
 Calculadora.contador; //2
 c1 = null;
 GC.Collect();
+GC.WaitForPendingFinalizers();
 Calculadora.contador; //1
 c2 = null;
 GC.Collect();
+GC.WaitForPendingFinalizers();
 Calculadora.contador; //0
 ```
 
