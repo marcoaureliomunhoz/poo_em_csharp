@@ -82,7 +82,7 @@ internal | O membro pode ser acessado somente dentro do mesmo assembly (dll).
 **Classes Estáticas:** ao marcar uma classe como estática seus membros devem ser estáticos. Neste caso a classe estática não pode ser extendida (herança) e nem instanciada. A classe estática é instanciada para a memória quando a aplicação entra em execução e fica disponível para acesso através do "nome da classe".
 
 ```csharp
-public static Calculadora
+public static class Calculadora
 {
     public static int Somar(int v1, int v2) 
     {
@@ -103,7 +103,7 @@ Calculadora.Multiplicar(3,3);
 **Classes Não Estáticas e Membros Estáticos:** ao marcar um membro como estático dentro de uma classe não estática este membro só pode ser acessado através do "nome da classe". Neste caso uma instância da classe e os membros estáticos são carregados para a memória e ficam disponíveis para acesso através do "nome da classe".
 
 ```csharp
-public Calculadora
+public class Calculadora
 {
     public static int contador = 0;
 
@@ -125,7 +125,7 @@ public Calculadora
     public int Multiplicar(int v1, int v2)
     {
         return v1 * v2;
-    }    
+    }
 }
 
 //usando

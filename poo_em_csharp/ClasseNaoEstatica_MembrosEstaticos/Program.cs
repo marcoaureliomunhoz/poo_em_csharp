@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClasseNaoEstatica_MembrosEstaticos
 {
-    class Calculadora
+    public class Calculadora
     {
         public static int contador = 0;
 
