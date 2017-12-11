@@ -6,45 +6,45 @@ using System.Threading.Tasks;
 
 namespace new_vs_override
 {
-    public class PapagaioCurintiano1
+    public class Papagaio1
     {
-        public void QualSeuNome()
+        public void QualSeuNome(string nome)
         {
-            Console.WriteLine("É cú!");
+            Console.WriteLine("Não importa!");
         }
     }
 
-    public class PapagaioCurintianoEducadoPorNew : PapagaioCurintiano1
+    public class PapagaioEducadoPorNew : Papagaio1
     {
-        public new void QualSeuNome()
+        public new void QualSeuNome(string nome)
         {
-            Console.WriteLine("É curi!");
+            Console.WriteLine("É {0}!", nome);
         }
 
-        public void FalaSerio()
+        public void FalaSerio(string nome)
         {
-            base.QualSeuNome();
+            base.QualSeuNome(nome);
         }
     }
 
-    public class PapagaioCurintiano2
+    public class Papagaio2
     {
-        public virtual void QualSeuNome()
+        public virtual void QualSeuNome(string nome)
         {
-            Console.WriteLine("É cú!");
+            Console.WriteLine("Não importa!");
         }
     }
 
-    public class PapagaioCurintianoEducadoPorOverride : PapagaioCurintiano2
+    public class PapagaioEducadoPorOverride : Papagaio2
     {
-        public override void QualSeuNome()
+        public override void QualSeuNome(string nome)
         {
-            Console.WriteLine("É curi!");
+            Console.WriteLine("É {0}!", nome);
         }
 
-        public void FalaSerio()
+        public void FalaSerio(string nome)
         {
-            base.QualSeuNome();
+            base.QualSeuNome(nome);
         }
     }
 
@@ -52,16 +52,16 @@ namespace new_vs_override
     {
         static void Main(string[] args)
         {
-            PapagaioCurintiano1 p1 = new PapagaioCurintiano1();
-            p1.QualSeuNome();
+            Papagaio1 p1 = new Papagaio1();
+            p1.QualSeuNome("Marco");
 
-            PapagaioCurintianoEducadoPorNew p2 = new PapagaioCurintianoEducadoPorNew();
-            p2.QualSeuNome();
-            p2.FalaSerio();
+            PapagaioEducadoPorNew p2 = new PapagaioEducadoPorNew();
+            p2.QualSeuNome("Marco");
+            p2.FalaSerio("Marco");
 
-            PapagaioCurintianoEducadoPorOverride p3 = new PapagaioCurintianoEducadoPorOverride();
-            p3.QualSeuNome();
-            p3.FalaSerio();
+            PapagaioEducadoPorOverride p3 = new PapagaioEducadoPorOverride();
+            p3.QualSeuNome("Marco");
+            p3.FalaSerio("Marco");
 
             Console.ReadKey();
         }

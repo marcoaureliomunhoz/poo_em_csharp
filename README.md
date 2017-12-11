@@ -195,46 +195,45 @@ public class Carro
 > Tanto para new quanto para override podemos acessar os membros da classe mãe através da keyword _base_.
 
 ```csharp
-public class PapagaioCurintiano1
+public class Papagaio1
 {
-    public void QualSeuNome()
+    public void QualSeuNome(string nome)
     {
-        Console.WriteLine("É cú!");
+        Console.WriteLine("Não importa!");
     }
 }
 
-public class PapagaioCurintianoEducadoPorNew : PapagaioCurintiano1
+public class PapagaioEducadoPorNew : Papagaio1
 {
-    public new void QualSeuNome()
+    public new void QualSeuNome(string nome)
     {
-        Console.WriteLine("É curi!");
+        Console.WriteLine("É {0}!", nome);
     }
 
-    public void FalaSerio()
+    public void FalaSerio(string nome)
     {
-        base.QualSeuNome();
+        base.QualSeuNome(nome);
     }
 }
 
-public class PapagaioCurintiano2
+public class Papagaio2
 {
-    public virtual void QualSeuNome()
+    public virtual void QualSeuNome(string nome)
     {
-        Console.WriteLine("É cú!");
+        Console.WriteLine("Não importa!");
     }
 }
 
-public class PapagaioCurintianoEducadoPorOverride : PapagaioCurintiano2
+public class PapagaioEducadoPorOverride : Papagaio2
 {
-    public override void QualSeuNome()
+    public override void QualSeuNome(string nome)
     {
-        Console.WriteLine("É curi!");
+        Console.WriteLine("É {0}!", nome);
     }
 
-    public void FalaSerio()
+    public void FalaSerio(string nome)
     {
-        base.QualSeuNome();
+        base.QualSeuNome(nome);
     }
 }
-
 ```
