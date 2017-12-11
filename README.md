@@ -187,3 +187,52 @@ public class Carro
     }
 }
 ```
+
+**new vs override:** ambos nos permitem sobrescrever membros herdados em uma classe filha. Desta forma podemos modificar comportamentos e características indesejados provenientes da herança.
+- new: oculta o membro marcado com _new_, porém ainda é possível acessar através da keyword _base_.
+- override: substitui o membro marcado com _override_, e não existe opção de acessar. Para marcar na classe filha um membro com _override_ o mesmo deve ser marcado na classe mãe com _virtual_.
+
+```csharp
+public class PapagaioCurintiano1
+{
+    public void QualSeuNome()
+    {
+        Console.WriteLine("É cú!");
+    }
+}
+
+public class PapagaioCurintianoEducadoPorNew : PapagaioCurintiano1
+{
+    public new void QualSeuNome()
+    {
+        Console.WriteLine("É curi!");
+    }
+
+    public void FalaSerio()
+    {
+        base.QualSeuNome();
+    }
+}
+
+public class PapagaioCurintiano2
+{
+    public virtual void QualSeuNome()
+    {
+        Console.WriteLine("É cú!");
+    }
+}
+
+public class PapagaioCurintianoEducadoPorOverride : PapagaioCurintiano2
+{
+    public override void QualSeuNome()
+    {
+        Console.WriteLine("É curi!");
+    }
+
+    public void FalaSerio()
+    {
+        base.QualSeuNome();
+    }
+}
+
+```
