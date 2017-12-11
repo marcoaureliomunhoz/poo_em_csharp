@@ -237,3 +237,75 @@ public class PapagaioEducadoPorOverride : Papagaio2
     }
 }
 ```
+
+**Polimorfismo:** é um dos pilares da orientação a objetos e que confere a um objeto a capacidade de assumir diferentes formas.
+
+- A sobrecarga é um tipo de polimorfismo onde um mesmo método/construtor possui várias formas (assinaturas diferentes).
+- No polimorfismo por herança é possível que referências para objetos genéricos apontem para objetos especializados. Isso significa que referências mais abstratas podem assumir formas mais abstratas.
+
+> Essa habilidade confere aos objetos mais dinamismo para representar com mais fidelidade os objetos do mundo real.
+
+```csharp
+public class Narrador 
+{
+    public string Lance { get; set; }
+
+    public virtual void Narrar()
+    {
+        Console.WriteLine(Lance);
+    }
+}
+
+public class Narrador1 : Narrador
+{
+    public override void Narrar()
+    {
+        if (Lance == "caneta") 
+            Console.WriteLine("Sensacional a caneta que o Pelé deu no Maradona!");
+    }
+}
+
+public class Narrador2 : Narrador
+{
+    public override void Narrar()
+    {
+        if (Lance == "caneta") 
+            Console.WriteLine("Incrível o rolinho que o Pelé deu no Maradona!");
+    }
+}
+
+//uso
+public class Jogo 
+{
+    private Narrador _narrador;
+
+    public void SetNarrador(Narrador narrador)
+    {
+        _narrador = narrador;
+    }
+
+    public void NovoLance(string lance)
+    {
+        _narrador.Lance = lance;
+        _narrador.Narrar();
+    }
+}
+
+//O narrador escalado para o jogo é o Neto Berolo
+Narrador1 netoBerolo = new Narrador1();
+//Começa o jogo
+Jogo jogo = new Jogo();
+jogo.SetNarrador(netoBerolo);
+//Ocorre o primeiro lance
+jogo.NovoLance("caneta");
+//Felizmente o Neto Berolo teve uma dor de barriga daquelas e teve que ser substituído pelo Galvão Pateta
+Narrador2 galvaoPatela = new Narrador2();
+jogo.SetNarrador(galvaoPatela);
+//Ocorre o segundo lance
+jogo.NovoLance("caneta");
+```
+
+> Outras observações sobre polimorfismo:
+- Repare que jogo espera um narrador genérico, mas quem de fato realiza a narração é um narrador especialista. Graças ao polimorfismo foi possível substituir o Neto Berolo pelo Galvão Pateta e ainda seria possível substituir este último por um narrador menos pior. Graças ao polimorfismo objetos diferentes podem atuar no lugar de um objeto genérico através da herança.
+- É possível realizar substituições em tempo de execução e obter o mesmo resultado final de um jeito diferente.
+

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encapsulamento1", "Encapsul
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "new_vs_override", "new_vs_override\new_vs_override.csproj", "{B0E490A4-E9F4-4559-AE5B-3D501E335D84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolimorfismoPorHeranca1", "PolimorfismoPorHeranca1\PolimorfismoPorHeranca1.csproj", "{5E3B6D91-9353-483A-AAA6-845556C5B4F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{B0E490A4-E9F4-4559-AE5B-3D501E335D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0E490A4-E9F4-4559-AE5B-3D501E335D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0E490A4-E9F4-4559-AE5B-3D501E335D84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E3B6D91-9353-483A-AAA6-845556C5B4F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E3B6D91-9353-483A-AAA6-845556C5B4F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E3B6D91-9353-483A-AAA6-845556C5B4F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E3B6D91-9353-483A-AAA6-845556C5B4F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
