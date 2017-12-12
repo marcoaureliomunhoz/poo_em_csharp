@@ -156,7 +156,7 @@ Calculadora.contador; //0
 
 > Em determinadas ocasiões é desejável herdar atributos e métodos de uma classe mãe sem deixar esses atributos e métodos acessíveis na instância. Neste caso devemos utilizar o modificador de acesso _protected_.
 
-**Encapsulamento:**: recurso que permite proteger os membros de uma classe. 
+**Encapsulamento:** recurso que permite proteger os membros de uma classe. 
 
 - Para esconder do mundo externo os membros de uma instância e impedir o acesso por herança devemos utilizar _private_. 
 - Para esconder do mundo externo e permitir acesso por herança devemos utilizar _protected_.
@@ -309,3 +309,50 @@ jogo.NovoLance("caneta");
 - Repare que jogo espera um narrador genérico, mas quem de fato realiza a narração é um narrador especialista. Graças ao polimorfismo foi possível substituir o Neto Berolo pelo Galvão Pateta e ainda seria possível substituir este último por um narrador menos pior. Graças ao polimorfismo objetos diferentes podem atuar no lugar de um objeto genérico através da herança.
 - É possível realizar substituições em tempo de execução e obter o mesmo resultado final de um jeito diferente.
 
+**Tipos de Classes:** 
+- **abstract**: classes abstratas não podem ser instanciadas.
+- **sealed**: classes finais (seladas) não podem ser herdadas.
+- **partial**: classes parciais permite dividir uma classe em vários arquivos.
+
+**Métodos Abstratos:** um método abstrato não tem implementação, possui apenas a declaração do método. A implementação fica por conta das classes filhas.
+- Classe Abstrata com Métodos Abstratos: é possível combinar métodos abstratos com classes abstratas. Neste caso todos os métodos devem ser abstratos.
+- Classe Concreta com Métodos Abstratos: também é possível combinar métodos abstratos com métodos concretos em classes concretas. Neste caso os métodos concretos possuem implementação e os métodos abstratos ficam por conta das classes filhas.
+
+**Interfaces:** estrutura abstrata que fornece apenas as especificações dos métodos e dos atributos de uma classe base. Os métodos não possuem implementação. Por padrão todos os métodos são públicos (**public**).
+
+> A diferença entre _abstract_ e _interface_ é que com _interface_ fica claro que a estrutura não possui implementação. No caso de _abstract_ o mesmo é obtido se a classe for _abstract_.
+
+> Ambas, classes abstratas e interfaces servem de base e podem ser usadas como "contratos" entre classes e sistemas.
+
+```csharp
+interface Repositorio 
+{
+    int Inserir(string registro);
+    void Alterar(int id, string registro);
+    void Excluir(int id);
+}
+
+public class RepositorioTxt : Repositorio
+{
+    public int Inserir(string registro)
+    {
+        //abre o arquivo
+        //grava o registro no arquivo
+        //retorna o número de linhas do arquivo
+    }
+
+    public void Alterar(int id, string registro)
+    {
+        //abre o arquivo
+        //posiciona na linha
+        //substitui a linha
+    }
+
+    public void Excluir(int id, string registro)
+    {
+        //abre o arquivo
+        //posiciona na linha
+        //remove a linha
+    }
+}
+```
